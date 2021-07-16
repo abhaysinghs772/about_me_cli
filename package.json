@@ -1,0 +1,14 @@
+{
+  "name": "assignment_1",
+  "version": "1.0.0",
+  "description": "cli_Quiz_app",
+  "main": "fun_quiz.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Abhay Kumar",
+  "license": "ISC",
+  "dependencies": {
+    "readline-sync": "^1.4.10"
+  }
+}
