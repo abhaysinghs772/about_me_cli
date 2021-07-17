@@ -1,4 +1,8 @@
-var readlineSync = require('readline-sync');
+
+const readlineSync = require('readline-sync');
+const chalk = require(`chalk`);
+
+// console.log(chalk.bgYellow.blue(`hello world!`));
 
 // var myName = `Abhay Kumar`;
 var userScore = 0;
@@ -13,12 +17,12 @@ function checkAnswer(question, answer, messege) {
 
   if (answer == userAnswer){
     userScore++;
-    console.log(`yeah you are correct and your score is ${userScore} 
-    ${messege[0]}`);
+    console.log(chalk.bgBlue.black(`yeah you are correct and your score is ${userScore} 
+    ${messege[0]}`));
   }else{
     userScore--;
-    console.log(`you are not correct and your score is ${userScore} 
-    ${messege[1]}`);
+    console.log(chalk.bgRed.black(`you are not correct and your score is ${userScore} 
+    ${messege[1]}`));
   }
 }
 

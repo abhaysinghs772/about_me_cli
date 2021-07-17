@@ -9,6 +9,7 @@
   "author": "Abhay Kumar",
   "license": "ISC",
   "dependencies": {
+    "chalk": "^4.1.1",
     "readline-sync": "^1.4.10"
   }
 }
