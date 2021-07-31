@@ -6,23 +6,22 @@ const chalk = require(`chalk`);
 
 // var myName = `Abhay Kumar`;
 var userScore = 0;
+var highScore = 3;
 
-var userName = readlineSync.question(`what is your name : `);
+var userName = readlineSync.question(chalk.cyan(`what is your name : `));
 
-console.log(`hello ${userName}! welcome to my challenge, lets see how well do you know me !
-rules of the game: a question will asked to you and you have to choose the correct option \n`);
+console.log(chalk.green(`\nhello ${userName}! welcome to my challenge, lets see how well do you know me !\n`));
+console.log(chalk.yellow(`rules of the game: a question will asked to you and you have to only choose the correct option \n`));
 
-function checkAnswer(question, answer, messege) {
+function checkAnswer(question, answer) {
   var userAnswer = readlineSync.question(question);
 
-  if (answer == userAnswer){
+  if (answer == userAnswer) {
     userScore++;
-    console.log(chalk.bgBlue.black(`yeah you are correct and your score is ${userScore} 
-    ${messege[0]}`));
-  }else{
+    console.log(chalk.blue(`absolutely correct\n and your score is ${userScore} \n`));
+  } else {
     userScore--;
-    console.log(chalk.bgRed.black(`you are not correct and your score is ${userScore} 
-    ${messege[1]}`));
+    console.log(chalk.red(`oopsie you choose the wrong option\n and your score is ${userScore} \n`));
   }
 }
 
@@ -35,11 +34,8 @@ var q_and_a_pair =
       c: 19
       your answer: `,
       correct_Answer: `b`,
-      messege: [
-        `haa bhaii 21 ka hi hu, kasam se!`,
-        `are bhaii 21 ka hu mai sach me`
-      ]
     },
+
     {
       question: `what i like most? 
       a: watching web-series
@@ -47,50 +43,45 @@ var q_and_a_pair =
       c: coding
       your answer: `,
       correct_Answer: `c`,
-      messege: [
-        `absolutely right bro`,
-        `eat => code => sleep => repeat`
-      ]
     },
+
     {
-      question: `Am i a marvel fan or a dc fan? 
-      a: marvel
-      b: dc
-      c: both
+      question: `where do i live? 
+      a: delhi
+      b: mumbai
+      c: banglore
       your answer: `,
       correct_Answer: `a`,
-      messege: [
-        `bhaii hai tu apna`,
-        `teri meri katti, :-(`
-      ]
     },
+
     {
-      question: `ok! but i also like one thing about dc, whats that ? 
-      a: aqua man
-      b: batman
-      c: wonder woman
+      question: `what subject do i like the most ? 
+      a: Dbms
+      b: Ds-algo
+      c: Computer networks
       your answer: `,
       correct_Answer: `c`,
-      messege: [
-        `bade harami ho beta! sahi guess kiye bilkul`,
-        `kab jaa rahe ho swarg ki yatra pe !`
-      ]
     },
+
     {
-      question: `Who is my favorite marvel' superhero? 
-      a: thor
-      b: captain america
-      c: iron-man
+      question: `what programming language do i love the most ? 
+      a: c
+      b: JavaScript
+      c: c++
       your answer: `,
       correct_Answer: `b`,
-      messege: [
-        `captain bro hai apna`,
-        `bilkul galat jawab `
-      ]
     }
   ];
 
 for (var i = 0; i < q_and_a_pair.length; i++) {
   var currentQuestion = q_and_a_pair[i];
-  checkAnswer(currentQuestion.question, currentQuestion.correct_Answer, currentQuestion.messege);
+  checkAnswer(currentQuestion.question, currentQuestion.correct_Answer, currentQuestion);
+}
+
+// check whether the user has beat the high score or not
+if(userScore >= highScore){
+  console.log(chalk.cyan(`wow you beat the high score`));
+  console.log(chalk.cyan(`your final score is: ${userScore}\n privious high score was ${highScore}`));
+} else {
+  console.log(chalk.cyan(`your final score is: ${userScore}\n high score is ${highScore}`));
 }
